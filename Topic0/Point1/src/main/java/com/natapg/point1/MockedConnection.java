@@ -23,7 +23,5 @@ public class MockedConnection {
   }
 
   public void close() {
-    System.out.println("Closing connection...");
   }
-
 }
