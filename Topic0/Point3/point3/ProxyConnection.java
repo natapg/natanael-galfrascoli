@@ -17,12 +17,8 @@ public class ProxyConnection implements DBConecction {
   }
 
   @Override
-  public void close() {
-    if (realConnection == null) {
-      realConnection = new ConnectDB();
-      realConnection.close();
-    } else {
-      realConnection.close();
-    }
-  }
+  public void close()
+     try{
+    realConnection.close();
+  } catch(NullPointerException npe)
 }
