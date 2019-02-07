@@ -1,14 +1,22 @@
-package com.natapg.recentFiles;
+package com.natapg;
+import com.natapg.recentFiles.*;
+import static org.junit.Assert.*;
 
-import static org.junit.Assert.assertEquals;
-
+import java.util.LinkedList;
 import org.junit.Test;
 
 public class RecentFilesTest {
 
   @Test
+
   public void firstTimeEmptyList() {
     FileManager file1 = new FileManager();
-    assertEquals(0, file1.getRecentFiles().size());
+    assertTrue(file1.getRecentFiles().isEmpty());
+  }
+  @Test
+  public void openFileAddedList() {
+    FileManager file1 = new FileManager();
+    file1.openFile("text.txt");
+    assertEquals(1,file1.getRecentFiles().size());
   }
 }

@@ -14,5 +14,8 @@ public class FileManager {
   public LinkedList<String> getRecentFiles() {
     return recentFiles;
   }
+  public void openFile(String file) {
+recentFiles.add(file);
+  }
 
 }
