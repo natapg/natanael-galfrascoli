@@ -14,8 +14,13 @@ public class FileManager {
   public LinkedList<String> getRecentFiles() {
     return recentFiles;
   }
-  public void openFile(String file) {
-recentFiles.add(file);
-  }
 
+  public void openFile(String file) {
+    if (recentFiles.contains(file)) {
+      recentFiles.set(0, file);
+    } else {
+      recentFiles.add(file);
+    }
+
+  }
 }

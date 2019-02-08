@@ -1,8 +1,9 @@
 package com.natapg;
-import com.natapg.recentFiles.*;
-import static org.junit.Assert.*;
 
-import java.util.LinkedList;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import com.natapg.recentFiles.FileManager;
 import org.junit.Test;
 
 public class RecentFilesTest {
@@ -13,10 +14,20 @@ public class RecentFilesTest {
     FileManager file1 = new FileManager();
     assertTrue(file1.getRecentFiles().isEmpty());
   }
+
   @Test
   public void openFileAddedList() {
     FileManager file1 = new FileManager();
     file1.openFile("text.txt");
-    assertEquals(1,file1.getRecentFiles().size());
+    assertEquals(1, file1.getRecentFiles().size());
   }
+  @Test
+  public void openFileAlreadyOpenNotDuplicateBumped(){
+    FileManager file1 = new FileManager();
+    file1.openFile("text.txt");
+    file1.openFile("text.txt");
+    assertEquals(1,file1.getRecentFiles().size());
+    assertEquals(0,file1.getRecentFiles().indexOf("text.txt"));
+  }
+
 }
