@@ -5,7 +5,7 @@ package com.natapg.point1;
  */
 public class MockedConnection {
 
-  private static MockedConnection connection = new MockedConnection();
+  private static MockedConnection connection;
 
   private MockedConnection() {
   }
