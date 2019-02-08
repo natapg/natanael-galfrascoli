@@ -4,6 +4,7 @@ import java.util.LinkedList;
 
 public class FileManager {
 
+  private int maxFiles = 15;
   LinkedList<String> recentFiles;
 
   public FileManager() {
@@ -18,8 +19,11 @@ public class FileManager {
   public void openFile(String file) {
     if (recentFiles.contains(file)) {
       recentFiles.set(0, file);
+    } else if (recentFiles.size() == maxFiles) {
+      recentFiles.removeLast();
+      recentFiles.addFirst(file);
     } else {
-      recentFiles.add(file);
+      recentFiles.addFirst(file);
     }
 
   }
