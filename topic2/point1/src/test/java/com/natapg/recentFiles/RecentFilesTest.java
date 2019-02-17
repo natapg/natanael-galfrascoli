@@ -1,37 +1,42 @@
-package com.natapg;
+package com.natapg.recentFiles;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import com.natapg.recentFiles.FileManager;
+import org.junit.Before;
 import org.junit.Test;
 
 public class RecentFilesTest {
 
+  private FileManager file1;
+
+  @Before
+  public void createInstanceFileManager() {
+    file1 = new FileManager();
+  }
+
   @Test
 
   public void firstTimeEmptyList() {
-    FileManager file1 = new FileManager();
     assertTrue(file1.getRecentFiles().isEmpty());
   }
 
   @Test
   public void openFileAddedList() {
-    FileManager file1 = new FileManager();
     file1.openFile("text.txt");
     assertEquals(1, file1.getRecentFiles().size());
   }
+
   @Test
-  public void openFileAlreadyOpenNotDuplicateBumped(){
-    FileManager file1 = new FileManager();
+  public void openFileAlreadyOpenNotDuplicateBumped() {
     file1.openFile("text.txt");
     file1.openFile("text.txt");
-    assertEquals(1,file1.getRecentFiles().size());
-    assertEquals(0,file1.getRecentFiles().indexOf("text.txt"));
+    assertEquals(1, file1.getRecentFiles().size());
+    assertEquals(0, file1.getRecentFiles().indexOf("text.txt"));
   }
+
   @Test
   public void ifRecentListGetsFullRemoveOldestFile() {
-    FileManager file1 = new FileManager();
     file1.openFile("text0.txt");
     file1.openFile("text1.txt");
     file1.openFile("text2.txt");
@@ -51,8 +56,8 @@ public class RecentFilesTest {
     file1.openFile("text15.txt");
     file1.openFile("text16.txt");
     file1.openFile("text17.txt");
-    assertEquals(15,file1.getRecentFiles().size());
-    assertEquals(0,file1.getRecentFiles().indexOf("text17.txt"));
+    assertEquals(15, file1.getRecentFiles().size());
+    assertEquals(0, file1.getRecentFiles().indexOf("text17.txt"));
   }
 
 }
