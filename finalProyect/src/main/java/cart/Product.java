@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
 
 @Entity // This tells Hibernate to make a table out of this class
 public class Product {
@@ -11,10 +12,16 @@ public class Product {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
+
   private Integer id;
+
+  @NotBlank(message = "Name may not be blank")
   private String name;
+
+  @NotBlank(message = "Category may not be blank")
   private String category;
-  private double price;
+
+  private Double price;
 
   public Integer getId() {
     return id;
@@ -32,7 +39,7 @@ public class Product {
     this.name = name;
   }
 
-  public double getPrice() {
+  public Double getPrice() {
     return price;
   }
 
