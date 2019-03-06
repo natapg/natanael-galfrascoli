@@ -18,6 +18,32 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-tomcat</artifactId>
+      <!--<scope>provided</scope>-->
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-security</artifactId>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/junit/junit -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>2.22.0</version>
+      <scope>test</scope>
+    </dependency>
+
 
     <!-- JPA Data (We are going to use Repositories, Entities, Hibernate, etc...) -->
 
@@ -81,14 +107,14 @@
         <version>${kotlin.version}</version>
         <executions>
           <execution>
-            <id>compile</id>
+            <cartItemId>compile</cartItemId>
             <phase>compile</phase>
             <goals>
               <goal>compile</goal>
             </goals>
           </execution>
           <execution>
-            <id>test-compile</id>
+            <cartItemId>test-compile</cartItemId>
             <phase>test-compile</phase>
             <goals>
               <goal>test-compile</goal>
